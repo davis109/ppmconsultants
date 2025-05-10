@@ -33,6 +33,11 @@
     @apply leading-relaxed;
     line-height: 1.5;
   }
+  
+  /* Add scroll-margin-top to all sections and divs with IDs */
+  section[id], div[id] {
+    scroll-margin-top: 100px;
+  }
 }
 
 @layer components {

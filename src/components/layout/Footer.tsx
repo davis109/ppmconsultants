@@ -5,8 +5,8 @@ import Logo from './Logo';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gradient-to-b from-blue-900 to-black text-white">
-      <div className="container-custom py-12">
+    <footer className="bg-gradient-to-b from-blue-900 via-[#0a1a33] to-black text-white -mt-[1px]">
+      <div className="container-custom pt-8 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="bg-white p-4 rounded-lg inline-block mb-4">

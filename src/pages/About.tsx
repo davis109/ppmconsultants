@@ -121,22 +121,21 @@ const About: React.FC = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="/images/construction-meeting.jpg" 
-            alt="PPMC in action" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-700/80"></div>
-        </div>
-        <div className="container-custom relative z-10">
-          <div className="max-w-3xl text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 reveal">About PPMC Private Limited</h1>
-            <p className="text-xl text-gray-100 reveal">
-              Professional Partners for Project Delivery - leading the way in project management and business consulting with expertise, innovation, and a commitment to your success.
-            </p>
-          </div>
+      <section id="about-hero" className="relative min-h-[400px] flex items-center scroll-mt-16">
+        {/* Background color */}
+        <div className="absolute inset-0 bg-blue-600 z-0"></div>
+        
+        {/* Optional overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 to-blue-600/50 z-10"></div>
+        
+        {/* Content */}
+        <div className="container-custom py-16 md:py-20 flex flex-col items-center justify-center text-center relative z-20">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
+            About PPMC Private Limited
+          </h1>
+          <p className="text-xl text-white max-w-3xl mx-auto mb-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">
+            Professional Partners for Project Delivery - leading the way in project management and business consulting with expertise, innovation, and a commitment to your success.
+          </p>
         </div>
       </section>
       
@@ -255,7 +254,7 @@ const About: React.FC = () => {
           
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
             <img src="/images/lt-galleria.jpg" alt="Project example" className="rounded-lg shadow-md h-48 object-cover" />
-            <img src="/images/giva-jewelry.jpg" alt="Project example" className="rounded-lg shadow-md h-48 object-cover" />
+            <img src="/images/construction-stages.jpg" alt="Project development" className="rounded-lg shadow-md h-48 object-cover" />
             <img src="/images/byjus-centers.jpg" alt="Project example" className="rounded-lg shadow-md h-48 object-cover" />
           </div>
         </div>
