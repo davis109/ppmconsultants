@@ -26,6 +26,7 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     setIsOpen(false);
+    setServicesOpen(false);
   }, [location]);
 
   // Initial animation

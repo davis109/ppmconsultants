@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { TrendingUp, BarChart3, Users, Briefcase, BookOpen, PieChart, Building, LineChart } from 'lucide-react';
-import SectionHeading from '../components/ui/SectionHeading';
+import { TrendingUp, BarChart3, Briefcase, BookOpen } from 'lucide-react';
 import Button from '../components/ui/Button';
 import { Link } from 'react-router-dom';
 
@@ -74,7 +73,7 @@ const ServiceSection: React.FC<ServiceProps> = ({
   }, [reverse]);
 
   return (
-    <div ref={sectionRef} id={id} className="py-16 scroll-mt-20">
+    <div ref={sectionRef} id={id} className="py-12 scroll-mt-20">
       <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${reverse ? 'lg:flex-row-reverse' : ''}`}>
         <div className={`${reverse ? 'lg:order-2' : ''}`}>
           <div className="text-blue-600 p-4 bg-blue-50 inline-block rounded-lg mb-6 animate-text">
@@ -175,53 +174,6 @@ const services = [
   },
 ];
 
-const additionalServices = [
-  {
-    icon: <Users size={32} />,
-    title: "Organizational Development",
-    description: "Build high-performing teams and organizational structures that support your business objectives.",
-    features: [
-      "Talent management strategies",
-      "Organizational structure design",
-      "Leadership development programs",
-    ],
-    image: "/images/training.jpg"
-  },
-  {
-    icon: <PieChart size={32} />,
-    title: "Market Research",
-    description: "Gain deep insights into your market, customers, and competitors to inform strategic decisions.",
-    features: [
-      "Market opportunity assessment",
-      "Competitive intelligence",
-      "Customer needs analysis",
-    ],
-    image: "/images/company-image.jpg"
-  },
-  {
-    icon: <Building size={32} />,
-    title: "Project Management",
-    description: "Expert management of projects from inception to completion, ensuring on-time and on-budget delivery.",
-    features: [
-      "Project planning and scheduling",
-      "Resource allocation",
-      "Risk management",
-    ],
-    image: "/images/ehs.jpg"
-  },
-  {
-    icon: <LineChart size={32} />,
-    title: "Performance Improvement",
-    description: "Identify and implement targeted improvements to enhance business performance and results.",
-    features: [
-      "Performance assessment",
-      "Gap analysis",
-      "Implementation of best practices",
-    ],
-    image: "/images/audits.jpg"
-  },
-];
-
 const Services: React.FC = () => {
   useEffect(() => {
     document.title = 'Our Services | PPMC Private Limited';
@@ -234,26 +186,34 @@ const Services: React.FC = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="/images/banner-bg.jpg" 
-            alt="Services banner" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-700/80"></div>
-        </div>
-        <div className="container-custom relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white reveal">Our Services</h1>
-          <p className="text-xl text-gray-100 max-w-3xl mx-auto reveal">
+      <section id="services-hero" className="relative min-h-[400px] flex items-center scroll-mt-16">
+        {/* Background color */}
+        <div className="absolute inset-0 bg-blue-600 z-0"></div>
+        
+        {/* Optional overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 to-blue-600/50 z-10"></div>
+        
+        {/* Content */}
+        <div className="container-custom py-16 md:py-20 flex flex-col items-center justify-center text-center relative z-20">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
+            Expert Consulting Services
+          </h1>
+          <p className="text-xl text-white max-w-3xl mx-auto mb-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">
             Comprehensive consulting solutions tailored to your business needs. We help organizations
             solve complex challenges and achieve sustainable growth.
           </p>
+          
+          <Link 
+            to="/contact" 
+            className="bg-white text-blue-700 hover:bg-blue-50 transition-all duration-300 px-8 py-4 rounded-lg font-semibold shadow-lg text-lg"
+          >
+            Get Started Today
+          </Link>
         </div>
       </section>
       
       {/* Services Overview */}
-      <section className="py-16 bg-white">
+      <section className="py-12 bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {services.map((service, index) => (
@@ -281,7 +241,7 @@ const Services: React.FC = () => {
       </section>
       
       {/* Services List */}
-      <section className="section bg-gray-50">
+      <section className="py-12 bg-gray-50">
         <div className="container-custom">
           {services.map((service, index) => (
             <React.Fragment key={service.id}>
@@ -295,79 +255,15 @@ const Services: React.FC = () => {
                 reverse={service.reverse}
               />
               {index < services.length - 1 && (
-                <div className="border-b border-gray-200 my-8"></div>
+                <div className="border-b border-gray-200 my-4"></div>
               )}
             </React.Fragment>
           ))}
         </div>
       </section>
       
-      {/* Additional Services */}
-      <section className="section bg-white">
-        <div className="container-custom">
-          <SectionHeading
-            title="Additional Services"
-            subtitle="We offer a range of specialized services to address specific business needs."
-            centered
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            {additionalServices.map((service, index) => (
-              <div key={index} className="bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-lg overflow-hidden reveal transition-transform duration-300 hover:-translate-y-2">
-                <div className="h-48 overflow-hidden">
-                  <img 
-                    src={service.image} 
-                    alt={service.title} 
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="text-blue-600 mb-4 bg-white p-3 rounded-full inline-block shadow-md">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                  <ul className="space-y-2 mb-5">
-                    {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-start">
-                        <span className="text-blue-600 mr-2 flex-shrink-0">✓</span>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-700 to-blue-900 text-white">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Business?</h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Let our expert consultants help you navigate challenges and achieve your business objectives with tailored solutions.
-          </p>
-          <Link to="/contact">
-            <Button variant="primary" className="bg-white text-blue-700 hover:bg-gray-100">
-              Schedule a Consultation
-            </Button>
-          </Link>
-          
-          {/* Client logos */}
-          <div className="mt-20">
-            <p className="text-lg mb-8">Trusted by leading organizations</p>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
-              <img src="/images/biocon.jpg" alt="Client logo" className="h-12 object-contain mx-auto brightness-0 invert" />
-              <img src="/images/manipal-hospitals.jpg" alt="Client logo" className="h-12 object-contain mx-auto brightness-0 invert" />
-              <img src="/images/rakuten-office.jpg" alt="Client logo" className="h-12 object-contain mx-auto brightness-0 invert" />
-              <img src="/images/lupin-ltd.jpg" alt="Client logo" className="h-12 object-contain mx-auto brightness-0 invert" />
-              <img src="/images/byjus-centers.jpg" alt="Client logo" className="h-12 object-contain mx-auto brightness-0 invert" />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Footer connection */}
+      <div className="bg-gradient-to-b from-gray-50 to-blue-900 h-16 mb-[-2px]"></div>
     </>
   );
 };
